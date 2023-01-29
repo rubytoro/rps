@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Rock Paper Scissors </title>
+        <script>
+            function getComputerChoice(){
+               let i = Math.floor(Math.random() *3);
+                if(i==0){
+                    return "rock"
+                }else if (i==1){
+                    return "paper"
+                }else if(i==2){
+                    return "scissors"
+                }
+            }
+            
+            
+            //above is fine below needs work//
+
+            
+            let computerSelection = getComputerChoice();
+            console.log(computerSelection);
+            let playerSelection= prompt("Lets play, choose rock, paper or scissors").toLowerCase();
+            console.log(playerSelection);
+            function playRound(playerSelection, computerSelection){
+                if(playerSelection==computerSelection){
+                    return "It' A TIE!"
+
+                }
+                if(playerSelection=="rock" && computerSelection=="paper"){
+                    return "YOU LOSE!!"
+                }
+                else if(playerSelection=="rock" && computerSelection=="scissors"){
+                    return "YOU WIN!!"
+                }
+                else if(playerSelection=="paper" && computerSelection=="rock"){
+                    return "YOU WIN!!"
+                }
+                else if(playerSelection=="paper" && computerSelection=="scissors"){
+                    return "YOU LOSE!!"
+                }
+                else if(playerSelection=="scissors" && computerSelection=="rock"){
+                    return "YOU LOSE!!"
+                }else if(playerSelection=="scissors" && computerSelection=="paper"){
+                    return "YOU WIN!!"
+                }
+
+            }
+            console.log(playRound(playerSelection,computerSelection));
+
+            
+            
+
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
