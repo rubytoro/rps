@@ -19,35 +19,96 @@
             //above is fine below needs work//
 
             
-            let computerSelection = getComputerChoice();
-            console.log(computerSelection);
-            let playerSelection= prompt("Lets play, choose rock, paper or scissors").toLowerCase();
-            console.log(playerSelection);
+            //let computerSelection = getComputerChoice();
+            //console.log(computerSelection);
+            //let playerSelection= prompt("Lets play, choose rock, paper or scissors").toLowerCase();
+            //console.log(playerSelection);
+            
+            let playerWins= "YOU WON";
+            let computerWins= "YOU LOSE";
+            let tie = "ITS A TIE ";
+            let result;
+
             function playRound(playerSelection, computerSelection){
+               
+
                 if(playerSelection==computerSelection){
-                    return "It' A TIE!"
+                    return result=tie;
+                    //"IT'S A TIE!!"
 
                 }
                 if(playerSelection=="rock" && computerSelection=="paper"){
-                    return "YOU LOSE!!"
+                    return result=computerWins;
+                    //"YOU LOSE!!"
                 }
                 else if(playerSelection=="rock" && computerSelection=="scissors"){
-                    return "YOU WIN!!"
+                    return result=playerWins;
+                    // "YOU WIN!!"
                 }
                 else if(playerSelection=="paper" && computerSelection=="rock"){
-                    return "YOU WIN!!"
+                    return result=playerWins;
+                    //"YOU WIN!!"
                 }
                 else if(playerSelection=="paper" && computerSelection=="scissors"){
-                    return "YOU LOSE!!"
+                    return result=computerWins;
+                    //"YOU LOSE!!"
                 }
                 else if(playerSelection=="scissors" && computerSelection=="rock"){
-                    return "YOU LOSE!!"
+                    return result=computerWins;
+                    //"YOU LOSE!!"
                 }else if(playerSelection=="scissors" && computerSelection=="paper"){
-                    return "YOU WIN!!"
+                    return result=playerWins;
+                    //"YOU WIN!!"
                 }
 
             }
-            console.log(playRound(playerSelection,computerSelection));
+           //console.log(playRound(playerSelection,computerSelection));
+           let playerScore=0;
+           let computerScore=0;
+
+           function game(){
+               for(let i=1; i<=5; i++){
+                
+                
+               let playerSelection= prompt("Lets play, choose rock, paper or scissors").toLowerCase();
+               /*for the line below this , it has to be declared here because when i tried declaring 
+                it above the playRound function the computerSelection would be the same for all 5 
+                rounds this way it seems to change every round*/
+               let computerSelection = getComputerChoice();   
+               
+               playRound(playerSelection,computerSelection);
+                    console.log(playerSelection);
+                    console.log(computerSelection);
+                    console.log(result + " THIS ROUND");
+                    
+                    if( result==playerWins){
+                        playerScore++;
+                        
+                    }
+                    console.log("YOUR SCORE: " + playerScore);
+                    if(result==computerWins){
+                        computerScore++;
+                    }
+                    console.log("COMPUTER SCORE: " + computerScore);
+                    if(playerScore>=3){
+                        return "YOU WON THE GAME!!!!"
+                    }
+                    if(computerScore>=3){
+                        return "THE COMPUTER HAS WON THE GAME"
+                    }
+
+                    
+
+
+                }
+            }
+          console.log(game());
+          if( computerScore==playerScore){
+            console.log(tie);
+          }
+
+            
+                
 
             
             
